@@ -1,0 +1,84 @@
+.header {
+
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+
+        @include viewport-sm {
+            padding: 60px 0;
+        }
+
+        @include viewport-md {
+            margin: 0 auto;
+            max-width: $container-max-md-width;
+        }
+
+        @include viewport-lg {
+            max-width: $container-max-lg-width;
+        }
+    }
+
+    &-title,
+    &-subtitle {
+        display: inline-flex;
+        font-family: $title-font-family;
+    }
+
+    &-title {
+        font-size: 20px;
+
+        @include viewport-sm {
+            font-size: 30px;
+        }
+
+        @include viewport-lg {
+            font-size: 40px;
+        }
+    }
+
+    &-subtitle {
+        position: relative;
+        padding: 0 20px;
+        margin-top: 5px;
+        font-size: 16px;
+
+        @include viewport-sm {
+            margin-top: 10px;
+            font-size: 22px;
+        }
+
+        @include viewport-lg {
+            font-size: 26px;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 1px;
+            width: 10px;
+            background-color: $color-charcoal;
+            transition: background-color ease-in-out .3s;
+
+            @at-root body.js-text-color-1 & {
+                background-color: $color-charcoal;
+            }
+
+            @at-root body.js-text-color-2 & {
+                background-color: $color-white;
+            }
+        }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+        }
+    }
+}

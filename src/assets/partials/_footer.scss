@@ -1,0 +1,204 @@
+.footer {
+
+    &-wrapper {
+        padding: 30px 0;
+
+        @include viewport-sm {
+            padding: 60px 0;
+        }
+
+        @include viewport-md {
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+            margin: 0 auto;
+            max-width: $container-max-md-width;
+        }
+
+        @include viewport-lg {
+            max-width: $container-max-lg-width;
+        }
+    }
+
+    &-left,
+    &-right {
+
+        @include viewport-md {
+            flex: 0 0 50%;
+            width: 50%;
+        }
+
+        a {
+            transition: opacity ease-in-out .3s;
+
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+
+    &-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include viewport-md {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .footer-phone,
+        .footer-email {
+            display: inline-flex;
+            align-items: center;
+            padding-left: 30px;
+            height: 20px;
+            font: {
+                family: $title-font-family;
+                size: 12px;
+            }
+            background: {
+                repeat: no-repeat;
+                position: center left;
+                size: auto 16px;
+            };
+
+            @include viewport-sm {
+                font-size: 14px;
+            }
+
+            @include viewport-md {
+                height: 30px;
+                background-size: auto 20px;
+            }
+
+            @include viewport-lg {
+                font-size: 16px;
+            }
+
+            a {
+                transition: color ease-in-out .3s;
+
+                @at-root body.js-text-color-1 & {
+                    color: $color-charcoal;
+                }
+
+                @at-root body.js-text-color-2 & {
+                    color: $color-white;
+                }
+            }
+        }
+
+        .footer-phone {
+            background-image: svg('phone.svg', (path: (fill: $color-charcoal)));
+
+            @at-root body.js-text-color-1 & {
+                background-image: svg("phone.svg", (path: (fill: $color-charcoal)));
+            }
+
+            @at-root body.js-text-color-2 & {
+                background-image: svg("phone.svg", (path: (fill: $color-white)));
+            }
+
+            a {
+
+                @include viewport-sm {
+                    pointer-events: none;
+                }
+
+                &:hover {
+
+                    @include viewport-sm {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .footer-email {
+            margin-top: 10px;
+            background-image: svg('email.svg', (path: (fill: $color-charcoal)));
+
+            @at-root body.js-text-color-1 & {
+                background-image: svg("email.svg", (path: (fill: $color-charcoal)));
+            }
+
+            @at-root body.js-text-color-2 & {
+                background-image: svg("email.svg", (path: (fill: $color-white)));
+            }
+
+            @include viewport-md {
+                margin-top: 0;
+                margin-left: 40px;
+            }
+        }
+    }
+
+    &-right {
+        margin-top: 20px;
+
+        @include viewport-md {
+            margin-top: 0;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+
+            @include viewport-md {
+                justify-content: flex-end;
+            }
+
+            &-link {
+                display: block;
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                text-decoration: none;
+                background: {
+                    repeat: no-repeat;
+                    position: 0 0;
+                    size: contain;
+                };
+                transition: opacity ease-in-out .3s;
+
+                @include viewport-md {
+                    margin-right: 20px;
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &:hover {
+                    opacity: .8;
+                }
+
+                &.linkedin {
+                    background-image: svg('linkedin-in.svg', (path: (fill: $color-charcoal)));
+
+                    @at-root body.js-text-color-1 & {
+                        background-image: svg("linkedin-in.svg", (path: (fill: $color-charcoal)));
+                    }
+
+                    @at-root body.js-text-color-2 & {
+                        background-image: svg("linkedin-in.svg", (path: (fill: $color-white)));
+                    }
+                }
+
+                &.github {
+                    background-image: svg('github.svg', (path: (fill: $color-charcoal)));
+
+                    @at-root body.js-text-color-1 & {
+                        background-image: svg("github.svg", (path: (fill: $color-charcoal)));
+                    }
+
+                    @at-root body.js-text-color-2 & {
+                        background-image: svg("github.svg", (path: (fill: $color-white)));
+                    }
+                }
+            }
+        }
+    }
+}

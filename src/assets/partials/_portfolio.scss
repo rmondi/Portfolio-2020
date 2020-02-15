@@ -1,0 +1,327 @@
+.portfolio {
+
+    &-wrapper {
+        position: relative;
+        padding: 0 60px;
+
+        @include viewport-sm {
+            padding: 0 120px;
+        }
+
+        @include viewport-md {
+            padding: 0 60px;
+            margin: 0 auto;
+            max-width: $container-max-md-width;
+        }
+
+        @include viewport-lg {
+            padding: 0 120px;
+            max-width: $container-max-lg-width;
+        }
+    }
+
+    &-projects {
+        overflow: hidden;
+    }
+
+    &-project {
+        width: 100%;
+
+        @include viewport-md {
+            display: flex;
+            align-items: center;
+        }
+
+        &-info,
+        &-visual {
+
+            @include viewport-md {
+                flex: 0 0 50%;
+                width: 50%;
+            }
+        }
+
+        &-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            @include viewport-md {
+                padding-right: 30px;
+            }
+
+            @include viewport-lg {
+                padding-right: 60px;
+            }
+
+            &-agency {
+                font-size: 10px;
+
+                @include viewport-sm {
+                    font-size: 12px;
+                }
+
+                @include viewport-lg {
+                    font-size: 14px;
+                }
+            }
+
+            &-title {
+                margin-top: 5px;
+                font: {
+                    font-family: $title-font-family;
+                    size: 20px;
+                }
+
+                @include viewport-sm {
+                    margin-top: 10px;
+                    font-size: 24px;
+                }
+
+                @include viewport-lg {
+                    margin-top: 20px;
+                    font-size: 30px;
+                }
+            }
+
+            &-description {
+                margin-top: 10px;
+                font: {
+                    family: $title-font-family;
+                    size: 12px;
+                };
+                line-height: 1.5em;
+                text-align: center;
+
+                @include viewport-sm {
+                    font-size: 16px;
+                }
+
+                @include viewport-lg {
+                    margin-top: 20px;
+                    font-size: 18px;
+                }
+            }
+
+            &-link {
+                margin-top: 20px;
+
+                @include viewport-lg {
+                    margin-top: 30px;
+                }
+
+                a {
+                    display: block;
+                    padding: 10px 30px;
+                    font-size: 12px;
+                    border: 1px solid $color-charcoal;
+                    transition: border-color ease-in-out .3s,
+                                color ease-in-out .3s;
+
+                    @at-root body.js-text-color-1 & {
+                        border-color: $color-charcoal;
+                        color: $color-charcoal;
+                    }
+
+                    @at-root body.js-text-color-2 & {
+                        border-color: $color-white;
+                        color: $color-white;
+                    }
+
+                    @include viewport-sm {
+                        font-size: 14px;
+                    }
+
+                    @include viewport-lg {
+                        font-size: 16px;
+                    }
+
+                    &:hover {
+                        // Todo
+                    }
+                }
+            }
+        }
+
+        &-visual {
+            margin-top: 30px;
+
+            @include viewport-sm {
+                margin-top: 60px;
+            }
+
+            @include viewport-md {
+                padding-left: 30px;
+                margin-top: 0;
+            }
+
+            @include viewport-lg {
+                padding-left: 60px;
+            }
+
+            &-wrapper {
+                position: relative;
+                height: 0;
+                padding-top: percentage(650/821);
+            }
+
+            &-desktop,
+            &-tablet,
+            &-mobile {
+                position: absolute;
+                // opacity: 0;
+                left: 0;
+
+                transition: opacity ease-in-out .3s,
+                            left ease-in-out .6s;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            &-desktop {
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            &-tablet {
+                top: 50%;
+                bottom: 0;
+            }
+
+            &-mobile {
+                top: 70%;
+                bottom: 0;
+            }
+        }
+
+        @keyframes moveTablet {
+            0% {
+                left: 0;
+            }
+
+            30% {
+                left: 10%;
+            }
+
+            85% {
+                left: 10%;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+
+        @keyframes moveMobile {
+            0% {
+                left: 0;
+            }
+
+            30% {
+                left: 5%;
+            }
+
+            87% {
+                left: 5%;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+
+        &.is-selected {
+
+            // .portfolio-project-visual-desktop,
+            // .portfolio-project-visual-tablet,
+            // .portfolio-project-visual-mobile {
+            //     opacity: 1;
+            // }
+
+            .portfolio-project-visual-tablet {
+                animation: moveTablet 5s ease-in-out;
+            }
+
+            .portfolio-project-visual-mobile {
+                animation: moveMobile 5s ease-in-out;
+            }
+        }
+    }
+
+    .previous-project,
+    .next-project {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 100px;
+        width: 40px;
+        background: {
+            repeat: no-repeat;
+            position: center;
+            size: contain;
+        };
+
+        transition: opacity ease-in-out .3s;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .6;
+        }
+    }
+
+    .previous-project {
+        left: 10px;
+        background-image: svg("previous.svg", (path: (fill: $color-charcoal)));
+
+        @at-root body.js-text-color-1 & {
+            background-image: svg("previous.svg", (path: (fill: $color-charcoal)));
+        }
+
+        @at-root body.js-text-color-2 & {
+            background-image: svg("previous.svg", (path: (fill: $color-white)));
+        }
+
+        @include viewport-sm {
+            left: 20px;
+        }
+
+        @include viewport-md {
+            left: 0;
+        }
+    }
+
+    .next-project {
+        right: 10px;
+        background-image: svg("next.svg", (path: (fill: $color-charcoal)));
+
+        @at-root body.js-text-color-1 & {
+            background-image: svg("next.svg", (path: (fill: $color-charcoal)));
+        }
+
+        @at-root body.js-text-color-2 & {
+            background-image: svg("next.svg", (path: (fill: $color-white)));
+        }
+
+        @include viewport-sm {
+            right: 20px;
+        }
+
+        @include viewport-md {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@import "assets/vendors/reset-css/**/*";
+
+@import "assets/manifest";
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    font-family: $default-font-family;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    color: $color-charcoal;
+    transition: color ease-in-out 3s;
+    background-color: $color-sand-dollar;
+
+    transition: background-color ease-in-out .3s;
+
+    &.js-background-color-1 {
+        background-color: $color-sand-dollar;
+    }
+
+    &.js-background-color-2 {
+        background-color: $color-gray;
+    }
+
+    &.js-background-color-3 {
+        background-color: $color-mystic;
+    }
+
+    &.js-background-color-4 {
+        background-color: $color-charcoal;
+    }
+
+    &.js-text-color-1 {
+        color: $color-charcoal;
+    }
+
+    &.js-text-color-2 {
+        color: $color-white;
+    }
+
+    .layout-content {
+
+        @include viewport-sm {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+    }
+
+    p {
+        line-height: 1.5em;
+    }
+
+    a {
+        color: $color-charcoal;
+        transition: color ease-in-out .3s;
+        text-decoration: none;
+    }
+}
+
+@import "assets/partials/header";
+@import "assets/partials/portfolio";
+@import "assets/partials/footer";
