@@ -172,10 +172,16 @@
             &-tablet,
             &-mobile {
                 position: absolute;
+                left: 0;
 
                 img {
                     height: 100%;
                 }
+            }
+
+            &-tablet,
+            &-mobile {
+                transition: left ease-in-out .6s;
             }
 
             &-desktop {
@@ -193,45 +199,18 @@
             &-mobile {
                 top: 70%;
                 bottom: 0;
-            }
-        }
-
-        @keyframes moveTablet {
-            0% {
-                left: 0;
-            }
-
-            20% {
-                left: 10%;
-            }
-
-            100% {
-                left: 10%;
-            }
-        }
-
-        @keyframes moveMobile {
-            0% {
-                left: 0;
-            }
-
-            25% {
-                left: 5%;
-            }
-
-            100% {
-                left: 5%;
+                transition-delay: .2s;
             }
         }
 
         &.is-selected {
 
             .portfolio-project-visual-tablet {
-                animation: moveTablet 5s forwards;
+                left: 10%;
             }
 
             .portfolio-project-visual-mobile {
-                animation: moveMobile 5s forwards;
+                left: 5%;
             }
         }
     }
