@@ -1,5 +1,7 @@
+/*jshint esversion: 6 */
+
 const slider = new Flickity(document.getElementById('slider'), {
-    fade: true,
+    wrapAround: true,
     cellAlign: 'left',
     contain: true,
     autoPlay: 5000,
@@ -51,10 +53,6 @@ slider.on('change', index => {
     }
 });
 
-document.getElementById('previous').addEventListener('click', () => {
-    slider.previous();
-});
+document.getElementById('previous').addEventListener('click', () => slider.previous());
 
-document.getElementById('next').addEventListener('click', () => {
-    slider.next();
-});
+document.getElementById('next').addEventListener('click', () => slider.next());

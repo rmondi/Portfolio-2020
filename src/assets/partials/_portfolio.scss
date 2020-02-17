@@ -111,11 +111,14 @@
                 }
 
                 a {
+                    position: relative;
+                    z-index: 9999;
                     display: block;
                     padding: 10px 30px;
                     font-size: 12px;
                     border: 1px solid $color-charcoal;
-                    transition: border-color ease-in-out .3s,
+                    transition: background-color ease-in-out .3s,
+                                border-color ease-in-out .3s,
                                 color ease-in-out .3s;
 
                     @at-root body.js-text-color-1 & {
@@ -137,7 +140,7 @@
                     }
 
                     &:hover {
-                        // Todo
+                        background-color: rgba(255, 255, 255, .2);
                     }
                 }
             }
@@ -169,11 +172,6 @@
             &-tablet,
             &-mobile {
                 position: absolute;
-                // opacity: 0;
-                left: 0;
-
-                transition: opacity ease-in-out .3s,
-                            left ease-in-out .6s;
 
                 img {
                     height: 100%;
@@ -203,21 +201,12 @@
                 left: 0;
             }
 
-            30% {
+            20% {
                 left: 10%;
-            }
-
-            85% {
-                left: 10%;
-            }
-
-            90% {
-                opacity: 1;
             }
 
             100% {
-                opacity: 0;
-                left: 100%;
+                left: 10%;
             }
         }
 
@@ -226,38 +215,23 @@
                 left: 0;
             }
 
-            30% {
+            25% {
                 left: 5%;
-            }
-
-            87% {
-                left: 5%;
-            }
-
-            92% {
-                opacity: 1;
             }
 
             100% {
-                opacity: 0;
-                left: 100%;
+                left: 5%;
             }
         }
 
         &.is-selected {
 
-            // .portfolio-project-visual-desktop,
-            // .portfolio-project-visual-tablet,
-            // .portfolio-project-visual-mobile {
-            //     opacity: 1;
-            // }
-
             .portfolio-project-visual-tablet {
-                animation: moveTablet 5s ease-in-out;
+                animation: moveTablet 5s forwards;
             }
 
             .portfolio-project-visual-mobile {
-                animation: moveMobile 5s ease-in-out;
+                animation: moveMobile 5s forwards;
             }
         }
     }

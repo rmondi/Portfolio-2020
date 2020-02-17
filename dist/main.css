@@ -508,9 +508,11 @@ body.js-text-color-2 .header-subtitle:after {
 
 .portfolio-project-info-link a {
     font-size: 12px;
+    position: relative;
+    z-index: 9999;
     display: block;
     padding: 10px 30px;
-    transition: border-color ease-in-out .3s, color ease-in-out .3s;
+    transition: background-color ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
     border: 1px solid #414754;
 }
 
@@ -542,6 +544,10 @@ body.js-text-color-2 .portfolio-project-info-link a {
     body {
         content: 'xl';
     }
+}
+
+.portfolio-project-info-link a:hover {
+    background-color: rgba(255, 255, 255, .2);
 }
 
 .portfolio-project-visual {
@@ -589,8 +595,6 @@ body.js-text-color-2 .portfolio-project-info-link a {
 .portfolio-project-visual-tablet,
 .portfolio-project-visual-mobile {
     position: absolute;
-    left: 0;
-    transition: opacity ease-in-out .3s, left ease-in-out .6s;
 }
 
 .portfolio-project-visual-desktop img,
@@ -621,21 +625,12 @@ body.js-text-color-2 .portfolio-project-info-link a {
         left: 0;
     }
 
-    30% {
+    20% {
         left: 10%;
-    }
-
-    85% {
-        left: 10%;
-    }
-
-    90% {
-        opacity: 1;
     }
 
     100% {
-        left: 100%;
-        opacity: 0;
+        left: 10%;
     }
 }
 
@@ -644,21 +639,12 @@ body.js-text-color-2 .portfolio-project-info-link a {
         left: 0;
     }
 
-    30% {
+    20% {
         left: 10%;
-    }
-
-    85% {
-        left: 10%;
-    }
-
-    90% {
-        opacity: 1;
     }
 
     100% {
-        left: 100%;
-        opacity: 0;
+        left: 10%;
     }
 }
 
@@ -667,21 +653,12 @@ body.js-text-color-2 .portfolio-project-info-link a {
         left: 0;
     }
 
-    30% {
+    25% {
         left: 5%;
-    }
-
-    87% {
-        left: 5%;
-    }
-
-    92% {
-        opacity: 1;
     }
 
     100% {
-        left: 100%;
-        opacity: 0;
+        left: 5%;
     }
 }
 
@@ -690,32 +667,23 @@ body.js-text-color-2 .portfolio-project-info-link a {
         left: 0;
     }
 
-    30% {
+    25% {
         left: 5%;
-    }
-
-    87% {
-        left: 5%;
-    }
-
-    92% {
-        opacity: 1;
     }
 
     100% {
-        left: 100%;
-        opacity: 0;
+        left: 5%;
     }
 }
 
 .portfolio-project.is-selected .portfolio-project-visual-tablet {
-    -webkit-animation: moveTablet 5s ease-in-out;
-            animation: moveTablet 5s ease-in-out;
+    -webkit-animation: moveTablet 5s forwards;
+            animation: moveTablet 5s forwards;
 }
 
 .portfolio-project.is-selected .portfolio-project-visual-mobile {
-    -webkit-animation: moveMobile 5s ease-in-out;
-            animation: moveMobile 5s ease-in-out;
+    -webkit-animation: moveMobile 5s forwards;
+            animation: moveMobile 5s forwards;
 }
 
 .portfolio .previous-project,
