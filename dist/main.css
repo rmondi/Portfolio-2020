@@ -354,10 +354,6 @@ body.js-text-color-2 .header-subtitle:after {
     }
 }
 
-.portfolio-projects {
-    overflow: hidden;
-}
-
 .portfolio-project {
     width: 100%;
 }
@@ -633,6 +629,10 @@ body.js-text-color-2 .portfolio-project-info-link a {
 
 .portfolio-project.is-selected .portfolio-project-visual-mobile {
     left: 5%;
+}
+
+.portfolio-project:not(is-selected) {
+    margin: 0 60px;
 }
 
 .portfolio .previous-project,

@@ -21,7 +21,20 @@
     }
 
     &-projects {
-        overflow: hidden;
+        // overflow: hidden;
+        // padding: 0 20px;
+        //
+        // @include viewport-sm {
+        //     padding: 0 30px;
+        // }
+        //
+        // @include viewport-md {
+        //     padding: 0 60px;
+        // }
+        //
+        // @include viewport-lg {
+        //     padding: 0 120px;
+        // }
     }
 
     &-project {
@@ -140,7 +153,7 @@
                     }
 
                     &:hover {
-                        background-color: rgba(255, 255, 255, .2);
+                        background-color: rgba($color-white, .2);
                     }
                 }
             }
@@ -212,6 +225,10 @@
             .portfolio-project-visual-mobile {
                 left: 5%;
             }
+        }
+
+        &:not(is-selected) {
+            margin: 0 60px;
         }
     }
 
