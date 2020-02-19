@@ -20,23 +20,6 @@
         }
     }
 
-    &-projects {
-        // overflow: hidden;
-        // padding: 0 20px;
-        //
-        // @include viewport-sm {
-        //     padding: 0 30px;
-        // }
-        //
-        // @include viewport-md {
-        //     padding: 0 60px;
-        // }
-        //
-        // @include viewport-lg {
-        //     padding: 0 120px;
-        // }
-    }
-
     &-project {
         width: 100%;
 
@@ -85,6 +68,7 @@
                     font-family: $title-font-family;
                     size: 20px;
                 }
+                text-align: center;
 
                 @include viewport-sm {
                     margin-top: 10px;
@@ -217,6 +201,8 @@
         }
 
         &.is-selected {
+            opacity: 1;
+            transition: opacity ease-in-out .3s;
 
             .portfolio-project-visual-tablet {
                 left: 10%;
@@ -227,8 +213,8 @@
             }
         }
 
-        &:not(is-selected) {
-            margin: 0 60px;
+        &:not(.is-selected) {
+            opacity: 0;
         }
     }
 

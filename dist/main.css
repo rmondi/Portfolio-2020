@@ -434,6 +434,7 @@ body.js-text-color-2 .header-subtitle:after {
 .portfolio-project-info-title {
     font-size: 20px;
     margin-top: 5px;
+    text-align: center;
     font-font-family: 'Montserrat', sans-serif;
 }
 
@@ -623,6 +624,11 @@ body.js-text-color-2 .portfolio-project-info-link a {
     transition-delay: .2s;
 }
 
+.portfolio-project.is-selected {
+    transition: opacity ease-in-out .3s;
+    opacity: 1;
+}
+
 .portfolio-project.is-selected .portfolio-project-visual-tablet {
     left: 10%;
 }
@@ -631,8 +637,8 @@ body.js-text-color-2 .portfolio-project-info-link a {
     left: 5%;
 }
 
-.portfolio-project:not(is-selected) {
-    margin: 0 60px;
+.portfolio-project:not(.is-selected) {
+    opacity: 0;
 }
 
 .portfolio .previous-project,
